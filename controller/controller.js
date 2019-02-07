@@ -28,7 +28,7 @@ router.get("/", function(req, res) {
 //   });
 // });
 
-// A GET request to scrape medium website
+// A GET request to scrape [mediumXXXXXXX(bad)] (new site the verge) website
 router.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
   request("https://theverge.com/tech", function(
