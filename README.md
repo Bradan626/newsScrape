@@ -1,4 +1,12 @@
 # News Scraper
-made with mongoose and stuff
-heroku deployment non-functional
-wont scrape website.......
+Uses Mongoose to Scrape news articles from a site and allows the user to make comments.
+# Tech used
+   1. express
+
+   2. express-handlebars
+
+   3. mongoose
+
+   4. cheerio
+
+   5. axios

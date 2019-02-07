@@ -16,26 +16,10 @@ router.get("/", function(req, res) {
   res.redirect("/articles");
 });
 
-// router.get('/test-scrape', function(req, res) {
-//   request(result.link, function(error, response, html) {
-//     var $ = cheerio.load(html);
-
-//     $('.l-col__main').each(function(i, element){
-//       var result = {};
-
-//       console.log($(this).children('.c-entry-content').children('p').text());
-//     });
-//   });
-// });
-
 // A GET request to scrape [mediumXXXXXXX(bad)] (new site the verge) website
 router.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
-  request("https://theverge.com/tech", function(
-    error,
-    response,
-    html
-  ) {
+  request("https://theverge.com/tech", function(error, response, html) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     var titlesArray = [];

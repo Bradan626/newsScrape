@@ -1,25 +1,25 @@
-body{
-  background: url('../img/orange.jpeg') repeat;
+body {
+  background: url("../img/orange.jpeg") repeat;
   background-size: 600px;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 16px;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-main{
+main {
   flex: 1 0 auto;
 }
 
-.articleBody{
+.articleBody {
   height: 200px;
   font-size: 20px;
   overflow-y: scroll;
   line-height: 150%;
 }
 
-#nameComment{
+#nameComment {
   /*border-bottom: 2px solid #ec407a;*/
   font-weight: bold;
   background: darkblue;
@@ -27,16 +27,15 @@ main{
 }
 
 /* label focus color */
-.input-field input[type=text]:focus + label {
- color: darkblue;
+.input-field input[type="text"]:focus + label {
+  color: darkblue;
 }
 /* label underline focus color */
-.input-field input[type=text]:focus {
- border-bottom: 1px solid darkorange;
- box-shadow: 0 1px 0 0 #000;
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid darkorange;
+  box-shadow: 0 1px 0 0 #000;
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
- color: darkorange;
+  color: darkorange;
 }
-
