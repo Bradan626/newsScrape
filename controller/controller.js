@@ -20,15 +20,14 @@ router.get("/", function(req, res) {
 router.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
   request("https://theverge.com/tech", function(error, response, html) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
+    //load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(html);
     var titlesArray = [];
-    // Now, we grab every article
+    //  grab every article
     $(".c-entry-box--compact__title").each(function(i, element) {
-      // Save an empty result object
+      // empty result object
       var result = {};
 
-      // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
         .children("a")
         .text();
@@ -36,21 +35,16 @@ router.get("/scrape", function(req, res) {
         .children("a")
         .attr("href");
 
-      //ensures that no empty title or links are sent to mongodb
       if (result.title !== "" && result.link !== "") {
         //check for duplicates
         if (titlesArray.indexOf(result.title) == -1) {
           // push the saved title to the array
           titlesArray.push(result.title);
 
-          // only add the article if is not already there
           Article.count({ title: result.title }, function(err, test) {
-            //if the test is 0, the entry is unique and good to save
             if (test == 0) {
-              //using Article model, create new object
               var entry = new Article(result);
 
-              //save entry to mongodb
               entry.save(function(err, doc) {
                 if (err) {
                   console.log(err);
@@ -60,25 +54,20 @@ router.get("/scrape", function(req, res) {
               });
             }
           });
-        }
-        // Log that scrape is working, just the content was missing parts
-        else {
+        } else {
           console.log("Article already exists.");
         }
-      }
-      // Log that scrape is working, just the content was missing parts
-      else {
+      } else {
         console.log("Not saved to DB, missing data");
       }
     });
-    // after scrape, redirects to index
+
     res.redirect("/");
   });
 });
 
-//this will grab every article an populate the DOM
 router.get("/articles", function(req, res) {
-  //allows newer articles to be on top
+  p;
   Article.find()
     .sort({ _id: -1 })
     //send to handlebars
@@ -92,7 +81,7 @@ router.get("/articles", function(req, res) {
     });
 });
 
-// This will get the articles we scraped from the mongoDB in JSON
+// articles we scraped from the mongoDB in JSON
 router.get("/articles-json", function(req, res) {
   Article.find({}, function(err, doc) {
     if (err) {
@@ -103,7 +92,7 @@ router.get("/articles-json", function(req, res) {
   });
 });
 
-//clear all articles for testing purposes
+// clear articles(testing)
 router.get("/clearAll", function(req, res) {
   Article.remove({}, function(err, doc) {
     if (err) {

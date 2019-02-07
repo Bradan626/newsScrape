@@ -20,22 +20,22 @@ main {
 }
 
 #nameComment {
-  /*border-bottom: 2px solid #ec407a;*/
+  
   font-weight: bold;
   background: darkblue;
   color: white;
 }
 
-/* label focus color */
+
 .input-field input[type="text"]:focus + label {
   color: darkblue;
 }
-/* label underline focus color */
+
 .input-field input[type="text"]:focus {
   border-bottom: 1px solid darkorange;
   box-shadow: 0 1px 0 0 #000;
 }
-/* icon prefix focus color */
+
 .input-field .prefix.active {
   color: darkorange;
 }
