@@ -67,7 +67,7 @@ router.get("/scrape", function(req, res) {
 });
 
 router.get("/articles", function(req, res) {
-  p;
+  
   Article.find()
     .sort({ _id: -1 })
     //send to handlebars

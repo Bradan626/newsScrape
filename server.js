@@ -27,8 +27,8 @@ app.set("view engine", "handlebars");
 
 //connecting to MongoDB
 var MONGODB_URI =
-  // process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-  process.env.MONGODB_URI || "mongodb:mongodb://heroku_gk5bhpmn:1e61kut570k7j5pu70pokj134m@ds121105.mlab.com:21105/heroku_gk5bhpmn";
+  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+  // process.env.MONGODB_URI || "mongodb:mongodb://heroku_gk5bhpmn:1e61kut570k7j5pu70pokj134m@ds121105.mlab.com:21105/heroku_gk5bhpmn";
 
 mongoose.connect(MONGODB_URI);
 
